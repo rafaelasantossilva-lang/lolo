@@ -14,6 +14,7 @@ print("---------------------------------\n\n")
 
 total = 0.0
 opcao = -1
+
 while opcao != 0:
     opcao = int(input("Escolha o número do item que deseja pedir: "))
     match opcao:
