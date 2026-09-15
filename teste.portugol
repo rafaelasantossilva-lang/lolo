@@ -1,1 +1,278 @@
-oi
+algoritmo "Lanchonete Sabor e Cia"
+
+var
+   itens: vetor[1..100] de caractere
+   precos: vetor[1..100] de real
+   quantidades: vetor[1..100] de inteiro
+   opcao, quantidade, i: inteiro
+   total: real
+
+inicio
+   // Bebidas e sucos
+   itens[1] <- "Suco de laranja"
+   precos[1] <- 6.00
+   itens[2] <- "Suco de maracuja"
+   precos[2] <- 6.00
+   itens[3] <- "Suco de morango"
+   precos[3] <- 7.00
+   itens[4] <- "Suco de limao"
+   precos[4] <- 5.00
+   itens[5] <- "Suco de abacaxi"
+   precos[5] <- 7.00
+   itens[6] <- "Suco de acerola"
+   precos[6] <- 6.00
+   itens[7] <- "Suco de goiaba"
+   precos[7] <- 6.00
+   itens[8] <- "Suco de manga"
+   precos[8] <- 7.00
+   itens[9] <- "Suco de uva"
+   precos[9] <- 6.00
+   itens[10] <- "Suco verde"
+   precos[10] <- 8.00
+
+   // Hamburgueres
+   itens[11] <- "Hamburguer classico"
+   precos[11] <- 15.00
+   itens[12] <- "Hamburguer bacon"
+   precos[12] <- 18.00
+   itens[13] <- "Hamburguer cheddar"
+   precos[13] <- 18.00
+   itens[14] <- "Hamburguer salada"
+   precos[14] <- 17.00
+   itens[15] <- "Hamburguer barbecue"
+   precos[15] <- 19.00
+   itens[16] <- "Hamburguer duplo"
+   precos[16] <- 23.00
+   itens[17] <- "Hamburguer de frango"
+   precos[17] <- 18.00
+   itens[18] <- "Hamburguer de calabresa"
+   precos[18] <- 18.00
+   itens[19] <- "Hamburguer vegetariano"
+   precos[19] <- 17.00
+   itens[20] <- "Hamburguer artesanal"
+   precos[20] <- 25.00
+   itens[21] <- "Cheeseburger"
+   precos[21] <- 14.00
+   itens[22] <- "X-bacon"
+   precos[22] <- 16.00
+   itens[23] <- "X-egg"
+   precos[23] <- 16.00
+   itens[24] <- "X-salada"
+   precos[24] <- 17.00
+   itens[25] <- "X-frango"
+   precos[25] <- 17.00
+   itens[26] <- "X-calabresa"
+   precos[26] <- 17.00
+   itens[27] <- "X-tudo"
+   precos[27] <- 22.00
+   itens[28] <- "Burguer de costela"
+   precos[28] <- 24.00
+   itens[29] <- "Burguer picante"
+   precos[29] <- 24.00
+   itens[30] <- "Burguer kids"
+   precos[30] <- 13.00
+
+   // Porcoes
+   itens[31] <- "Batata frita pequena"
+   precos[31] <- 8.00
+   itens[32] <- "Batata frita media"
+   precos[32] <- 11.00
+   itens[33] <- "Batata frita grande"
+   precos[33] <- 14.00
+   itens[34] <- "Batata cheddar"
+   precos[34] <- 18.00
+   itens[35] <- "Batata bacon"
+   precos[35] <- 20.00
+   itens[36] <- "Batata rustica"
+   precos[36] <- 16.00
+   itens[37] <- "Aneis de cebola"
+   precos[37] <- 14.00
+   itens[38] <- "Mandioca frita"
+   precos[38] <- 12.00
+   itens[39] <- "Polenta frita"
+   precos[39] <- 12.00
+   itens[40] <- "Nuggets 6 unidades"
+   precos[40] <- 10.00
+   itens[41] <- "Nuggets 10 unidades"
+   precos[41] <- 15.00
+   itens[42] <- "Isca de frango"
+   precos[42] <- 18.00
+   itens[43] <- "Frango empanado"
+   precos[43] <- 16.00
+   itens[44] <- "Bolinho de queijo"
+   precos[44] <- 14.00
+   itens[45] <- "Bolinho de carne"
+   precos[45] <- 12.00
+
+   // Salgados
+   itens[46] <- "Coxinha"
+   precos[46] <- 8.00
+   itens[47] <- "Coxinha com catupiry"
+   precos[47] <- 10.00
+   itens[48] <- "Risole de presunto"
+   precos[48] <- 8.00
+   itens[49] <- "Kibe"
+   precos[49] <- 8.00
+   itens[50] <- "Pastel de queijo"
+   precos[50] <- 9.00
+   itens[51] <- "Pastel de carne"
+   precos[51] <- 10.00
+   itens[52] <- "Pastel de frango"
+   precos[52] <- 10.00
+   itens[53] <- "Pastel de pizza"
+   precos[53] <- 10.00
+   itens[54] <- "Pastel de palmito"
+   precos[54] <- 10.00
+   itens[55] <- "Empada de frango"
+   precos[55] <- 10.00
+   itens[56] <- "Empada de palmito"
+   precos[56] <- 9.00
+   itens[57] <- "Esfiha de carne"
+   precos[57] <- 9.00
+   itens[58] <- "Esfiha de queijo"
+   precos[58] <- 9.00
+   itens[59] <- "Esfiha de frango"
+   precos[59] <- 9.00
+   itens[60] <- "Enroladinho de queijo"
+   precos[60] <- 9.00
+
+   // Pizzas
+   itens[61] <- "Pizza mussarela"
+   precos[61] <- 32.00
+   itens[62] <- "Pizza calabresa"
+   precos[62] <- 34.00
+   itens[63] <- "Pizza frango"
+   precos[63] <- 35.00
+   itens[64] <- "Pizza quatro queijos"
+   precos[64] <- 39.00
+   itens[65] <- "Pizza portuguesa"
+   precos[65] <- 36.00
+   itens[66] <- "Pizza marguerita"
+   precos[66] <- 35.00
+   itens[67] <- "Pizza pepperoni"
+   precos[67] <- 40.00
+   itens[68] <- "Pizza bacon"
+   precos[68] <- 38.00
+   itens[69] <- "Pizza milho"
+   precos[69] <- 32.00
+   itens[70] <- "Pizza vegetariana"
+   precos[70] <- 35.00
+
+   // Hot dogs e sanduiches
+   itens[71] <- "Hot dog simples"
+   precos[71] <- 12.00
+   itens[72] <- "Hot dog completo"
+   precos[72] <- 16.00
+   itens[73] <- "Hot dog bacon"
+   precos[73] <- 18.00
+   itens[74] <- "Hot dog calabresa"
+   precos[74] <- 18.00
+   itens[75] <- "Hot dog cheddar"
+   precos[75] <- 19.00
+   itens[76] <- "Sanduiche natural"
+   precos[76] <- 14.00
+   itens[77] <- "Sanduiche de atum"
+   precos[77] <- 16.00
+   itens[78] <- "Sanduiche de frango"
+   precos[78] <- 18.00
+   itens[79] <- "Sanduiche de pernil"
+   precos[79] <- 20.00
+   itens[80] <- "Sanduiche de queijo"
+   precos[80] <- 14.00
+
+   // Cafes e outras bebidas
+   itens[81] <- "Cafe pequeno"
+   precos[81] <- 5.00
+   itens[82] <- "Cafe com leite"
+   precos[82] <- 7.00
+   itens[83] <- "Chocolate quente"
+   precos[83] <- 9.00
+   itens[84] <- "Cha gelado"
+   precos[84] <- 7.00
+   itens[85] <- "Milk-shake chocolate"
+   precos[85] <- 16.00
+   itens[86] <- "Milk-shake morango"
+   precos[86] <- 16.00
+   itens[87] <- "Milk-shake baunilha"
+   precos[87] <- 16.00
+   itens[88] <- "Refrigerante lata"
+   precos[88] <- 6.00
+   itens[89] <- "Refrigerante 600ml"
+   precos[89] <- 8.00
+   itens[90] <- "Agua mineral"
+   precos[90] <- 4.00
+
+   // Sobremesas
+   itens[91] <- "Agua com gas"
+   precos[91] <- 5.00
+   itens[92] <- "Chopp sem alcool"
+   precos[92] <- 8.00
+   itens[93] <- "Salada de frutas"
+   precos[93] <- 12.00
+   itens[94] <- "Acai pequeno"
+   precos[94] <- 15.00
+   itens[95] <- "Acai grande"
+   precos[95] <- 18.00
+   itens[96] <- "Sorvete chocolate"
+   precos[96] <- 8.00
+   itens[97] <- "Sorvete morango"
+   precos[97] <- 8.00
+   itens[98] <- "Sorvete baunilha"
+   precos[98] <- 8.00
+   itens[99] <- "Brownie"
+   precos[99] <- 10.00
+   itens[100] <- "Pudim"
+   precos[100] <- 12.00
+
+   total <- 0.00
+
+   para i de 1 ate 100 faca
+      quantidades[i] <- 0
+   fimpara
+
+   repita
+      escreval("")
+      escreval("========================================")
+      escreval("       LANCHONETE SABOR E CIA")
+      escreval("========================================")
+      escreval("Digite 0 para finalizar o pedido.")
+      escreval("")
+
+      para i de 1 ate 100 faca
+         escreval(i, " - ", itens[i], " | R$ ", precos[i]:5:2)
+      fimpara
+
+      escreva("")
+      escreva("Escolha o numero do item: ")
+      leia(opcao)
+
+      se opcao <> 0 entao
+         se opcao >= 1 e opcao <= 100 entao
+            escreva("Digite a quantidade de ", itens[opcao], ": ")
+            leia(quantidade)
+
+            se quantidade > 0 entao
+               quantidades[opcao] <- quantidades[opcao] + quantidade
+               total <- total + (precos[opcao] * quantidade)
+               escreval("Item adicionado ao pedido!")
+            senao
+               escreval("A quantidade deve ser maior que zero.")
+            fimse
+         senao
+            escreval("Opcao invalida. Escolha um numero de 1 a 100.")
+         fimse
+      fimse
+   ate opcao = 0
+
+   escreval("")
+   escreval("============= RESUMO DO PEDIDO =========")
+   para i de 1 ate 100 faca
+      se quantidades[i] > 0 entao
+         escreval(quantidades[i], " x ", itens[i], " = R$ ", (precos[i] * quantidades[i]):5:2)
+      fimse
+   fimpara
+   escreval("----------------------------------------")
+   escreval("TOTAL: R$ ", total:5:2)
+   escreval("Obrigado pela preferencia!")
+
+fimalgoritmo
